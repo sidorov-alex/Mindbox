@@ -10,6 +10,7 @@ public class TriangleTests
     [InlineData(3, 4, 5, 6)]
     [InlineData(20, 21, 29, 210)]
     [InlineData(100, 100, 100, 4330.127019)]
+    [InlineData(1, 1, 10, double.NaN)] // Не существующий треугольник
     public void GetAreaEqual(double a, double b, double c, double expected)
     {
         var t = new Triangle(a, b, c);
