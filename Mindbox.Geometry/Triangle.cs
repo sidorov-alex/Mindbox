@@ -16,7 +16,7 @@ public class Triangle : GeometryObject, IShape
     public double GetArea()
     {
         // Считаем площадь по формуле Герона.
-        double p = (A + B + C) / 2;
+        var p = (A + B + C) / 2;
         return Math.Sqrt(p * (p - A) * (p - B) * (p - C));
     }
 
