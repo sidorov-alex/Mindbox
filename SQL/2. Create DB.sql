@@ -1,20 +1,20 @@
-﻿CREATE TABLE [dbo].[Product]
+﻿CREATE TABLE Product
 (
 	[Id] INT NOT NULL PRIMARY KEY, 
-    [Name] NCHAR(255) NOT NULL
+    [Name] NVARCHAR(255) NOT NULL
 );
 
-CREATE UNIQUE INDEX [IX_Product_Name] ON [dbo].[Product] ([Name]);
+CREATE UNIQUE INDEX [IX_Product_Name] ON [Product] ([Name]);
 
-CREATE TABLE [dbo].[Category]
+CREATE TABLE Category
 (
 	[Id] INT NOT NULL PRIMARY KEY, 
-    [Name] NCHAR(255) NOT NULL
+    [Name] NVARCHAR(255) NOT NULL
 );
 
-CREATE UNIQUE INDEX [IX_Category_Name] ON [dbo].[Category] ([Name]);
+CREATE UNIQUE INDEX [IX_Category_Name] ON [Category] ([Name]);
 
-CREATE TABLE [dbo].[ProductCategory]
+CREATE TABLE ProductCategory
 (
 	[ProductId] INT NOT NULL , 
     [CategoryId] INT NOT NULL, 
