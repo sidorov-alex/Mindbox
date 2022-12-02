@@ -11,20 +11,16 @@
 		Product.Name;
 
 SELECT
-		Product.Name AS ProductName
-	,	ISNULL(
-			(SELECT
-				STRING_AGG(Category.Name, ', ')
-			FROM
-				ProductCategory
-			INNER JOIN
-				Category ON Category.Id = CategoryId
-			WHERE
-				ProductId = Product.Id
-			)
-		,	''
-	)	AS Categories
+		Product.Id AS ProductId
+	,	Product.Name AS ProductName
+	,	ISNULL(STRING_AGG(Category.Name, ', '), '') AS CategoryName
 	FROM
 		Product
+	LEFT JOIN
+		ProductCategory ON Product.Id = ProductId
+	LEFT JOIN
+		Category ON CategoryId = Category.Id
+    GROUP BY
+    	Product.Id, Product.Name
     ORDER BY
 		Product.Name;
